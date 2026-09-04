@@ -8,7 +8,7 @@ class PaymentDecision(BaseModel):
         default="PROCEED",
         description="The operational decision for the payment request"
     )
-    reasoning_summary: str = Field(
+    reasoning_summary: Optional[str] = Field(
         default="Valid transaction parameters.",
         description="Detailed LLM reasoning explaining why this decision was reached"
     )
@@ -22,7 +22,7 @@ class PaymentDecision(BaseModel):
         default_factory=list,
         description="Missing parameters or fields if additional information is required"
     )
-    recommended_next_step: str = Field(
+    recommended_next_step: Optional[str] = Field(
         default="risk_assessment",
         description="Suggested next pipeline step (e.g., 'risk_assessment', 'reject_with_reason')"
     )
@@ -48,7 +48,7 @@ class RiskAssessment(BaseModel):
         default_factory=list,
         description="Identified risk triggers or anomalies"
     )
-    reasoning_summary: str = Field(
+    reasoning_summary: Optional[str] = Field(
         default="Low risk signals.",
         description="Comprehensive justification for the risk score and classification"
     )
@@ -82,7 +82,7 @@ class ExecutorDecision(BaseModel):
         default_factory=dict,
         description="Arguments passed to the chosen tool"
     )
-    reasoning_summary: str = Field(
+    reasoning_summary: Optional[str] = Field(
         default="Executing target tool.",
         description="Reasoning explaining why this tool and arguments were selected"
     )

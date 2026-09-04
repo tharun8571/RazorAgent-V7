@@ -21,7 +21,7 @@ class MonitoringDecision(BaseModel):
         default="LOW",
         description="Severity level of the incident"
     )
-    root_cause: str = Field(
+    root_cause: Optional[str] = Field(
         default="System nominal.",
         description="LLM diagnosis of the root cause based on telemetry, logs, and events"
     )
@@ -29,7 +29,7 @@ class MonitoringDecision(BaseModel):
         default_factory=dict,
         description="Specific events, metrics, or logs supporting the diagnosis"
     )
-    recommended_recovery: str = Field(
+    recommended_recovery: Optional[str] = Field(
         default="Standby.",
         description="LLM recommendation for mitigation or recovery"
     )
@@ -60,11 +60,11 @@ class RecoveryPlan(BaseModel):
         default="no_action",
         description="Selected recovery strategy"
     )
-    reason: str = Field(
+    reason: Optional[str] = Field(
         default="No recovery action required.",
         description="Detailed rationale for choosing this recovery action"
     )
-    expected_effect: str = Field(
+    expected_effect: Optional[str] = Field(
         default="Restores normal operations.",
         description="Anticipated outcome after executing the action"
     )
@@ -76,7 +76,7 @@ class RecoveryPlan(BaseModel):
         default=False,
         description="Whether human-in-the-loop signoff is required before execution"
     )
-    verification_plan: str = Field(
+    verification_plan: Optional[str] = Field(
         default="Verify subsystem telemetry.",
         description="How the system will verify whether recovery succeeded"
     )
