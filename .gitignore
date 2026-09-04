@@ -1,0 +1,59 @@
+# Environment & Secret Files (CRITICAL API SECURITY)
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env.local
+frontend/.env.*
+!frontend/.env.example
+
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Databases & Local SQLite Persistence
+*.db
+*.sqlite
+*.sqlite3
+razoragent.db
+backend/razoragent.db
+
+# Node.js & Next.js Build Artifacts
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+build/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# IDE & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+scratch/
+test_human_review.py
