@@ -463,7 +463,7 @@ async def recovery_node(state: RazorAgentState) -> RazorAgentState:
         return await _handle_llm_failure(state, "recovery_agent", str(e))
     except Exception as e:
         logger.error(f"Recovery agent error: {str(e)}", exc_info=True)
-        return state
+        return await _handle_llm_failure(state, "recovery_agent", str(e))
 
 
 async def verification_node(state: RazorAgentState) -> RazorAgentState:
